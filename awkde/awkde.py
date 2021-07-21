@@ -147,6 +147,16 @@ class GaussianKDE(BaseEstimator):
         self.__call__.__func__.__doc__ = self.predict.__doc__
         return self.predict(X)
 
+    def set_params(self, **parameters):
+        for parameter, value in parameters.items():
+            setattr(self, parameter, value)
+        return self
+
+    def get_params(self, deep=True):
+        return {"glob_bw":self._glob_bw,
+                "alpha": self._alpha,
+                "diag_cov":self._diag_cov}
+
     def fit(self, X, bounds=None, weights=None):
         """
         Prepare KDE to describe the data.
