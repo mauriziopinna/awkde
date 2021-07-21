@@ -137,9 +137,17 @@ class GaussianKDE(BaseEstimator):
     def glob_bw(self):
         return self._glob_bw
 
+    @glob_bw.setter
+    def glob_bw(self, glob_bw):
+        self._glob_bw = glob_bw
+
     @property
     def diag_cov(self):
         return self._diag_cov
+
+    @diag_cov.setter
+    def diag_cov(self, diag_cov):
+        self._diag_cov=diag_cov
 
     # Public Methods
     def __call__(self, X):
